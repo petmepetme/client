@@ -10,16 +10,8 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import HomeScreen from './HomeScreen';
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
-    );
-  }
-}
 
 class FavoriteScreen extends React.Component {
   render() {
@@ -68,27 +60,27 @@ const TabNavigator = createBottomTabNavigator({
   Inbox: InboxScreen,
   Profile: ProfileScreen,
 }, {
-  defaultNavigationOptions: ({navigation})=> ({
-    tabBarIcon: ()=> {
+  defaultNavigationOptions: ({ navigation }) => ({
+    tabBarIcon: () => {
       const { routeName } = navigation.state;
       if (routeName === 'Favorite') {
-        return <Image source={require('../images/icons8-love-24.png')}/>
+        return <Image source={require('../images/icons8-love-24.png')} />
       } else if (routeName === 'Home') {
-        return <Image source={require('../images/icons8-dog-house-24.png')}/>
+        return <Image source={require('../images/icons8-dog-house-24.png')} />
       } else if (routeName === 'Pet') {
-        return <Image source={require('../images/icons8-cat-profile-48.png')} style={{marginBottom: 10}}/>
+        return <Image source={require('../images/icons8-cat-profile-48.png')} style={{ marginBottom: 10 }} />
       } else if (routeName === 'Inbox') {
-        return <Image source={require('../images/icons8-envelope-24.png')}/>
-      } else  if (routeName === 'Profile') {
-        return <Image source={require('../images/icons8-account-24.png')}/>
+        return <Image source={require('../images/icons8-envelope-24.png')} />
+      } else if (routeName === 'Profile') {
+        return <Image source={require('../images/icons8-account-24.png')} />
       }
     }
   }),
-    tabBarOptions: {
-      showIcon: true,
-      showLabel: true
-    }
+  tabBarOptions: {
+    showIcon: true,
+    showLabel: true
   }
+}
 );
 
 export default createAppContainer(TabNavigator);
