@@ -11,6 +11,7 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './HomeScreen';
+import ForumScreen from './ForumScreen';
 
 
 class FavoriteScreen extends React.Component {
@@ -55,7 +56,7 @@ class ProfileScreen extends React.Component {
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
-  Favorite: FavoriteScreen,
+  Favorite: ForumScreen,
   Pet: PetScreen,
   Inbox: InboxScreen,
   Profile: ProfileScreen,

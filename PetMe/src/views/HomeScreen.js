@@ -8,35 +8,35 @@ export default class HomeScreen extends Component {
         return (
 
             <View style={styles.viewContainer}>
-                <ScrollView>
-                    <StatusBar backgroundColor="#FFFFFF" />
-                    <View style={styles.viewNav}>
-                        <View style={styles.viewTextNav}>
-                            <Text style={styles.textNews}>News</Text>
-                            <Text style={styles.textNews}>|</Text>
-                            <Text style={styles.textNews}>Forum</Text>
-                        </View>
-                        <View style={styles.viewIconNav}>
-                            <View style={styles.viewSection}>
-                                <Image
-                                    source={require('../images/search.png')}
-                                    style={styles.imageIcon}
-                                />
+                <StatusBar backgroundColor="#FFFFFF" />
+                <View style={styles.viewNav}>
+                    <View style={styles.viewTextNav}>
+                        <Text style={styles.textNews}>News</Text>
+                        <Text style={styles.textNews}>|</Text>
+                        <Text style={styles.textNews}>Forum</Text>
+                    </View>
+                    <View style={styles.viewIconNav}>
+                        <View style={styles.viewSection}>
+                            <Image
+                                source={require('../images/search.png')}
+                                style={styles.imageIcon}
+                            />
 
-                                <TextInput
-                                    style={styles.inputSearch}
-                                    placeholder="Cari timbangan digital"
-                                    underlineColorAndroid="transparent"
-                                />
-                            </View>
-                            <View style={styles.viewIconBar}>
-                                <Icon name="heart" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
-                                <Icon name="envelope" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
-                                <Icon name="bell" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
-                            </View>
+                            <TextInput
+                                style={styles.inputSearch}
+                                placeholder="Cari timbangan digital"
+                                underlineColorAndroid="transparent"
+                            />
+                        </View>
+                        <View style={styles.viewIconBar}>
+                            <Icon name="heart" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
+                            <Icon name="envelope" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
+                            <Icon name="bell" size={responsiveFontSize(3)} color="#FFFFFF" style={styles.iconBar} />
                         </View>
                     </View>
-                    <View style={styles.lineNav} />
+                </View>
+                <View style={styles.lineNav} />
+                <ScrollView>
                     <ScrollView
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}>
