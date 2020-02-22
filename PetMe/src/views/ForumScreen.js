@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TextInput, Image, StatusBar, ScrollView } from 'react-native'
-import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions'
+import { Text, View, TextInput, Image, StatusBar, ScrollView } from 'react-native'
+import { responsiveFontSize } from 'react-native-responsive-dimensions'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from '../styles/style.ForumScreen'
+import CardForum from '../components/CardForum';
 
 export default class ForumScreen extends Component {
     render() {
@@ -36,54 +38,12 @@ export default class ForumScreen extends Component {
                 </View>
                 <View style={styles.lineNav} />
                 <ScrollView>
-                    <View style={styles.viewForum}>
-                        <View>
-                            <Image
-                                style={styles.imageForum}
-                                source={{ uri: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg?w=1155&h=1541' }}
-                            />
-                        </View>
-                        <View style={styles.viewTextForum}>
-                            <Text style={styles.textTitle}>Telah Ditemukan Anjing Di Depok</Text>
-                            <Text style={styles.textDescription}>Kondisi Dalam Keadaan Kritis</Text>
-                        </View>
-                    </View>
-                    <View style={styles.viewForum}>
-                        <View>
-                            <Image
-                                style={styles.imageForum}
-                                source={{ uri: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg?w=1155&h=1541' }}
-                            />
-                        </View>
-                        <View style={styles.viewTextForum}>
-                            <Text style={styles.textTitle}>Telah Ditemukan Anjing Di Depok</Text>
-                            <Text style={styles.textDescription}>Kondisi Dalam Keadaan Kritis</Text>
-                        </View>
-                    </View>
-                    <View style={styles.viewForum}>
-                        <View>
-                            <Image
-                                style={styles.imageForum}
-                                source={{ uri: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg?w=1155&h=1541' }}
-                            />
-                        </View>
-                        <View style={styles.viewTextForum}>
-                            <Text style={styles.textTitle}>Telah Ditemukan Anjing Di Depok</Text>
-                            <Text style={styles.textDescription}>Kondisi Dalam Keadaan Kritis</Text>
-                        </View>
-                    </View>
-                    <View style={styles.viewForum}>
-                        <View>
-                            <Image
-                                style={styles.imageForum}
-                                source={{ uri: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg?w=1155&h=1541' }}
-                            />
-                        </View>
-                        <View style={styles.viewTextForum}>
-                            <Text style={styles.textTitle}>Telah Ditemukan Anjing Di Depok</Text>
-                            <Text style={styles.textDescription}>Kondisi Dalam Keadaan Kritis</Text>
-                        </View>
-                    </View>
+                    <CardForum />
+                    <CardForum />
+                    <CardForum />
+                    <CardForum />
+                    <CardForum />
+                    <CardForum />
                 </ScrollView>
             </View>
 
@@ -91,98 +51,3 @@ export default class ForumScreen extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    viewContainer: {
-        flex: 1,
-        backgroundColor: '#FFFFFF',
-        justifyContent: 'center'
-    },
-    viewNav: {
-        flexDirection: 'row',
-    },
-    viewTextNav: {
-        flexDirection: 'row',
-        marginLeft: responsiveWidth(2.33),
-        justifyContent: 'center',
-        marginTop: responsiveHeight(2.33)
-    },
-    viewIconNav: {
-        height: responsiveHeight(7.5),
-        backgroundColor: '#4AACA7',
-        width: responsiveWidth(78),
-        flexDirection: 'row'
-    },
-    textNews: {
-        color: '#000000',
-        fontWeight: 'bold',
-        fontSize: responsiveFontSize(2.2),
-        marginHorizontal: responsiveWidth(0.5)
-    },
-    lineNav: {
-        height: responsiveHeight(0.15),
-        backgroundColor: '#DDDDDD',
-        width: responsiveWidth(1000),
-        marginTop: responsiveHeight(0.2)
-    },
-    viewSection: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        borderWidth: 0.5,
-        borderColor: '#DDDDDD',
-        height: responsiveHeight(6),
-        borderRadius: 5,
-        width: responsiveWidth(40),
-        justifyContent: 'center',
-        marginTop: responsiveHeight(0.5),
-        marginLeft: responsiveWidth(1)
-    },
-
-    imageIcon: {
-        margin: 5,
-        height: 15,
-        width: 15,
-        resizeMode: 'stretch',
-        alignItems: 'center',
-    },
-    inputSearch: {
-        flex: 1,
-        fontSize: responsiveFontSize(1.3),
-        justifyContent: 'center'
-    },
-    viewIconBar: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: responsiveHeight(1.6),
-        marginLeft: responsiveWidth(1.66)
-    },
-    viewTextForum: {
-        flex: 1,
-        marginLeft: responsiveWidth(2.33),
-        marginRight: responsiveWidth(0.8)
-    },
-    iconBar: {
-        marginHorizontal: responsiveWidth(1)
-    },
-    viewForum: {
-        flexDirection: 'row',
-        marginLeft: responsiveWidth(2.33),
-        marginTop: responsiveHeight(2.33),
-        marginBottom: responsiveHeight(1.66),
-    },
-    imageForum: {
-        width: 120,
-        height: 120
-    },
-    textTitle: {
-        fontSize: responsiveFontSize(1.8),
-        color: '#000000',
-        fontWeight: 'bold'
-    },
-    textDescription: {
-        fontSize: responsiveFontSize(1.8),
-        color: '#000000',
-        marginTop: responsiveHeight(0.33)
-    }
-})
