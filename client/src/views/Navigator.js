@@ -7,13 +7,14 @@
 //  * @lint-ignore-every XPLATJSCOPYRIGHT1
 //  */
 
-import React from 'react';
-import { Text, View, Image } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import HomeScreen from './HomeScreen';
-import ForumScreen from './ForumScreen';
-import Favorite from './Favorite';
+import React from 'react'
+import { Text, View, Image } from 'react-native'
+import { createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import HomeScreen from './HomeScreen'
+import ForumScreen from './ForumScreen'
+import Favorite from './Favorite'
+import CategoryBanner from './CategoryBanner'
 
 
 class FavoriteScreen extends React.Component {
@@ -22,7 +23,7 @@ class FavoriteScreen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Favorite!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -32,7 +33,7 @@ class PetScreen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Pet!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -42,7 +43,7 @@ class InboxScreen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Inbox!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -52,20 +53,20 @@ class ProfileScreen extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Profile!</Text>
       </View>
-    );
+    )
   }
 }
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
-  Favorite: Favorite,
+  Favorite: CategoryBanner,
   Pet: PetScreen,
   Inbox: InboxScreen,
   Profile: ProfileScreen,
 }, {
   defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: () => {
-      const { routeName } = navigation.state;
+      const { routeName } = navigation.state
       if (routeName === 'Favorite') {
         return <Image source={require('../images/icons8-love-24.png')} />
       } else if (routeName === 'Home') {
@@ -84,6 +85,6 @@ const TabNavigator = createBottomTabNavigator({
     showLabel: true
   }
 }
-);
+)
 
-export default createAppContainer(TabNavigator);
+export default createAppContainer(TabNavigator)
