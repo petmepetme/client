@@ -4,6 +4,14 @@ import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-nat
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isComment: false,
+            comentar: ''
+        };
+      }
+
     onShare = async () => {
         try {
           const result = await Share.share({
@@ -23,6 +31,22 @@ export default class HomeScreen extends Component {
           alert(error.message);
         }
       };
+
+    renderComment() {
+      return(
+          <View style={styles.viewComment}>
+              <View style={styles.dividerComment}/>
+               <TextInput 
+                placeholder={'Tambahkan Komentar'}
+                value={this.state.comentar}
+                onChangeText={(comment) => this.setState({comment})}
+                style={{
+                    flex:1
+                }}
+               />
+          </View>
+      )
+    }
 
     render() {
         return (
@@ -182,9 +206,13 @@ export default class HomeScreen extends Component {
 
                         <View style={styles.viewFooter}>
                             <View style={{ flexDirection: 'row', }}>
+                                <TouchableOpacity  activeOpacity={0.5} onPress={this.onShare}>
                                 <Icon name="heart" size={responsiveFontSize(3)} color="grey" style={styles.iconBar} />
+                                </TouchableOpacity>
+                                <TouchableOpacity  activeOpacity={0.5} onPress={() => this.setState({isComment: !this.state.isComment})}>
                                 <Icon name="comments" size={responsiveFontSize(3)} color="black" style={styles.iconBar} />
-                                <TouchableOpacity onPress={this.onShare}>
+                                </TouchableOpacity>
+                                <TouchableOpacity  activeOpacity={0.5} onPress={this.onShare}>
                                 <Icon name="send" size={responsiveFontSize(3)} color="black" style={styles.iconBar} />
                                 </TouchableOpacity>
                             </View>
@@ -194,6 +222,9 @@ export default class HomeScreen extends Component {
                         </View>
                         <View style={styles.viewCount}>
                             <Text>4 Suka</Text>
+                         </View>
+                         <View>
+                           {this.state.isComment ? this.renderComment() : (<View/>)}
                          </View>
                     </View>
                 </ScrollView>
@@ -348,5 +379,18 @@ const styles = StyleSheet.create({
     viewCount:{
         marginLeft:responsiveWidth(5.33),
         color: '#555'
+    },
+    viewComment:{
+        marginLeft:responsiveWidth(5.33),
+    },
+    dividerComment:{
+        width:responsiveWidth(92),
+        height:responsiveHeight(0.15),
+        backgroundColor:'#EEE',
+        marginTop:responsiveHeight(1),
+        marginRight:responsiveHeight(5.33)
     }
 })
+
+
+
