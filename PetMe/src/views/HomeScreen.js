@@ -1,12 +1,31 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TextInput, Image, StatusBar, ScrollView } from 'react-native'
+import { Text, View, StyleSheet, TextInput, Image, StatusBar, ScrollView, TouchableOpacity, Share } from 'react-native'
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class HomeScreen extends Component {
+    onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              'PetMe | Share The Content',
+          });
+    
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+
     render() {
         return (
-
             <View style={styles.viewContainer}>
                 <ScrollView>
                     <StatusBar backgroundColor="#FFFFFF" />
@@ -104,7 +123,7 @@ export default class HomeScreen extends Component {
                         </View>
                     </ScrollView>
 
-                    <View style={styles.viewCard}>
+                    {/* <View style={styles.viewCard}>
                         <View style={styles.viewHead}>
                             <View style={{ flexDirection: 'row', }}>
                                 <Image
@@ -136,7 +155,7 @@ export default class HomeScreen extends Component {
                                 <Icon name="save" size={responsiveFontSize(3)} color="black" style={[styles.iconBar, { marginRight: responsiveWidth(5.33) }]} />
                             </View>
                         </View>
-                    </View>
+                    </View> */}
                     {/* Card */}
 
                     <View style={styles.viewCard}>
@@ -163,14 +182,19 @@ export default class HomeScreen extends Component {
 
                         <View style={styles.viewFooter}>
                             <View style={{ flexDirection: 'row', }}>
-                                <Icon name="heart" size={responsiveFontSize(3)} color="red" style={styles.iconBar} />
+                                <Icon name="heart" size={responsiveFontSize(3)} color="grey" style={styles.iconBar} />
                                 <Icon name="comments" size={responsiveFontSize(3)} color="black" style={styles.iconBar} />
+                                <TouchableOpacity onPress={this.onShare}>
                                 <Icon name="send" size={responsiveFontSize(3)} color="black" style={styles.iconBar} />
+                                </TouchableOpacity>
                             </View>
                             <View>
                                 <Icon name="save" size={responsiveFontSize(3)} color="black" style={[styles.iconBar, { marginRight: responsiveWidth(5.33) }]} />
                             </View>
                         </View>
+                        <View style={styles.viewCount}>
+                            <Text>4 Suka</Text>
+                         </View>
                     </View>
                 </ScrollView>
             </View>
@@ -321,4 +345,8 @@ const styles = StyleSheet.create({
         marginTop: responsiveHeight(1.33),
         marginBottom: responsiveHeight(1.33)
     },
+    viewCount:{
+        marginLeft:responsiveWidth(5.33),
+        color: '#555'
+    }
 })
