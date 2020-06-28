@@ -8,7 +8,8 @@ export default class HomeScreen extends Component {
         super(props);
         this.state = {
             isComment: false,
-            comentar: ''
+            comentar: '',
+            isLike: false
         };
       }
 
@@ -206,8 +207,8 @@ export default class HomeScreen extends Component {
 
                         <View style={styles.viewFooter}>
                             <View style={{ flexDirection: 'row', }}>
-                                <TouchableOpacity  activeOpacity={0.5} onPress={this.onShare}>
-                                <Icon name="heart" size={responsiveFontSize(3)} color="grey" style={styles.iconBar} />
+                                <TouchableOpacity  activeOpacity={0.5} onPress={() => this.setState({isLike: !this.state.isLike})}>
+                                <Icon name="heart" size={responsiveFontSize(3)} color={this.state.isLike ? "red" : 'grey'} style={styles.iconBar} />
                                 </TouchableOpacity>
                                 <TouchableOpacity  activeOpacity={0.5} onPress={() => this.setState({isComment: !this.state.isComment})}>
                                 <Icon name="comments" size={responsiveFontSize(3)} color="black" style={styles.iconBar} />
@@ -221,7 +222,7 @@ export default class HomeScreen extends Component {
                             </View>
                         </View>
                         <View style={styles.viewCount}>
-                            <Text>4 Suka</Text>
+                            <Text>{this.state.isLike ? 1 : 0} Suka</Text>
                          </View>
                          <View>
                            {this.state.isComment ? this.renderComment() : (<View/>)}
