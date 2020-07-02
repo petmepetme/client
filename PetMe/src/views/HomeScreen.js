@@ -37,6 +37,7 @@ export default class HomeScreen extends Component {
       return(
           <View style={styles.viewComment}>
               <View style={styles.dividerComment}/>
+              <View style={styles.flexDirectionComment}>
                <TextInput 
                 placeholder={'Tambahkan Komentar'}
                 value={this.state.comentar}
@@ -45,6 +46,10 @@ export default class HomeScreen extends Component {
                     flex:1
                 }}
                />
+               <TouchableOpacity>
+                  <Text style={this.state.isComment !== '' ? styles.textPostingOn : styles.textPosting}>Posting</Text>
+               </TouchableOpacity>
+               </View>
           </View>
       )
     }
@@ -200,9 +205,11 @@ export default class HomeScreen extends Component {
                             </View>
                         </View>
                         <View>
+                            <TouchableOpacity o>
                             <Image
                                 style={[styles.imageBody]}
                                 source={{ uri: 'https://img.wallpaper.sc/android/images/1080x1920/android-1080x1920-wallpaper_00016.jpg' }} />
+                                </TouchableOpacity>
                         </View>
 
                         <View style={styles.viewFooter}>
@@ -378,7 +385,7 @@ const styles = StyleSheet.create({
         marginBottom: responsiveHeight(1.33)
     },
     viewCount:{
-        marginLeft:responsiveWidth(5.33),
+        marginLeft:responsiveWidth(7.33),
         color: '#555'
     },
     viewComment:{
@@ -390,6 +397,21 @@ const styles = StyleSheet.create({
         backgroundColor:'#EEE',
         marginTop:responsiveHeight(1),
         marginRight:responsiveHeight(5.33)
+    },
+    flexDirectionComment:{
+        justifyContent:'space-between',
+        flexDirection:'row'
+    },
+    textPosting:{
+        marginTop:responsiveHeight(2.33),
+        marginRight:responsiveHeight(2.33),
+        fontSize:responsiveFontSize(1.6)
+    },
+    textPostingOn:{
+        marginTop:responsiveHeight(2.33),
+        marginRight:responsiveHeight(2.33),
+        fontSize:responsiveFontSize(1.6),
+        color:'#389FF6'
     }
 })
 

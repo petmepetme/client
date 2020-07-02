@@ -11,6 +11,7 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './HomeScreen';
+import Profile from './Profile'
 
 
 class FavoriteScreen extends React.Component {
@@ -43,22 +44,13 @@ class InboxScreen extends React.Component {
   }
 }
 
-class ProfileScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Profile!</Text>
-      </View>
-    );
-  }
-}
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
   Favorite: FavoriteScreen,
   Pet: PetScreen,
   Inbox: InboxScreen,
-  Profile: ProfileScreen,
+  Profile: Profile,
 }, {
   defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: () => {
