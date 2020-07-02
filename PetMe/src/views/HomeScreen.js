@@ -205,7 +205,7 @@ export default class HomeScreen extends Component {
                             </View>
                         </View>
                         <View>
-                            <TouchableOpacity o>
+                            <TouchableOpacity onPressOut={() => this.setState({isLike: !this.state.isLike})} activeOpacity={0.8}>
                             <Image
                                 style={[styles.imageBody]}
                                 source={{ uri: 'https://img.wallpaper.sc/android/images/1080x1920/android-1080x1920-wallpaper_00016.jpg' }} />

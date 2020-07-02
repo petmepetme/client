@@ -70,7 +70,8 @@ const TabNavigator = createBottomTabNavigator({
   }),
   tabBarOptions: {
     showIcon: true,
-    showLabel: true
+    showLabel: true,
+    
   }
 }
 );
